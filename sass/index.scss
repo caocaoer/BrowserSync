@@ -1,0 +1,133 @@
+//@import "common.scss";
+
+$fontColor: #494949;
+$maxWidth: 1159px;
+$fontFamily: 'Microsoft YaHei';
+
+@mixin imgSize($width, $height){
+    width: $width;
+    height: $height;
+}
+@mixin item($direction, $value){
+    #{$direction}: $value;
+}
+@mixin box-align{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    background: red;
+    font-family: $fontFamily;
+    margin: 0;
+    padding: 0;
+    header {
+        height: 66px;
+        border-bottom: 1px solid #A9A9A9;
+        .out-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include imgSize(75%, 100%);
+            @include box-align;
+            max-width: $maxWidth;
+        }
+        img {
+            max-width: 155px;
+            min-width: 130px;
+            @include imgSize(20%, auto);
+        }
+        ul{
+            display: flex;
+            justify-content: space-between;
+            @include imgSize(60%, auto);
+            li{
+                list-style: none;
+                a {
+                    text-decoration: none;
+                    color: $fontColor;
+                    font-size: 18px;
+                }
+                &:nth-child(4){
+                    margin-right: 20%;
+                }
+            }
+        }
+    }
+    .content {
+        margin-bottom: 166px;
+        .banner {
+            img {
+                @include imgSize(100%, 350px);
+            }
+        }
+        .inner-box {
+            h2{
+                width: 100%;
+                text-align: center;
+                margin-top: 60px;
+                margin-bottom: 60px;
+            }
+            div{
+                width: 85%;
+                max-width: $maxWidth;
+                display: flex;
+                @include box-align;
+                dl {
+                    box-sizing: border-box;
+                    width: 25%;
+                    font-size: 14px;
+                    padding: 20px;
+                    dd{
+                        line-height: 25px;
+                        color: #494949;
+                        -webkit-margin-start: 0;
+                        width: 100%;
+                        img{
+                            @include imgSize(100%, 125px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    footer{
+        height: 378px;
+        border-top: 1px solid #EFEFEF;
+        background: #EFEFEF;
+        .top{
+            width: 75%;
+            max-width: 1159px;
+            @include box-align;
+            justify-content: space-between;
+            display: flex;
+            height: 301px;
+            dl{
+                color: #494949;
+                dt{
+                    margin-top: 22px;
+                    font-size: 16px;
+                }
+                dd{
+                    -webkit-margin-start: 0;
+                    margin-top: 20px;
+                    font-size: 14px;
+                }
+                &:nth-child(3){
+                    margin-right: 20%;
+                }
+            }
+        }
+        .bottom{
+            height: 75px;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #D1D1D1;
+            p{
+                width: 100%;
+                color: #494949;
+                text-align: center;    
+            }
+        }
+    }
+}
