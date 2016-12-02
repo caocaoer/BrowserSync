@@ -36,7 +36,9 @@ gulp.task('sass:watch', function(){
 //静态服务器 + 监听 + sass/html 文件
 gulp.task('serve', ['sass'], function(){
     browserSync.init({
-        server: ''
+        server: {
+            baseDir: ''
+        }
     });
     gulp.watch('sass/*.scss', ['sass']);
     gulp.watch('*.html').on('change', reload);
@@ -45,7 +47,7 @@ gulp.task('serve', ['sass'], function(){
 gulp.task('sass', function(){
     gulp.src('sass/*.scss')
     .pipe(sass())
-    .pipe(gulp.dest('newcss'))
+    .pipe(gulp.dest('css'))
     .pipe(reload({
         stream: true
     }));
